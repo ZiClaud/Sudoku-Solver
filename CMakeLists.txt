@@ -7,8 +7,17 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_FLAGS_DEBUG "-g -O0")
 
 # Set the build type to Debug
-if(NOT CMAKE_BUILD_TYPE)
+if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
-endif()
+endif ()
 
-add_executable(Sudoku_Solver main.c)
+add_executable(
+        Sudoku_Solver
+        main.c
+        print.c
+        print.h
+        basic_solver.c
+        basic_solver.h
+        basic_operations.h
+        basic_operations.c
+)
