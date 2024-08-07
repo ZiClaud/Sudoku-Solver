@@ -22,7 +22,7 @@ int sudoku[9][9] = {
 };
 
 int sudoku2[9][9] = {
-    {1, 2, 3, 4, 5, 0, 7, 8, 9},
+    {1, 2, 3, 4, 0, 0, 7, 8, 9},
     {2, 3, 4, 5, 6, 7, 8, 9, 1},
     {3, 4, 5, 6, 7, 8, 9, 1, 2},
     {4, 5, 6, 7, 8, 9, 1, 2, 3},
@@ -89,7 +89,6 @@ void _remove(int list[9], int val) {
 }
 
 void _remove_row(int s[9][9], int poss[9][9][9], int row, int col) {
-    // If item in row gets removed, -> number_was_removed = true
     for (int c = 0; c < 9; ++c) {
         if (contains(poss[row][col], s[row][c])) {
             _remove(poss[row][col], s[row][c]);
@@ -98,8 +97,11 @@ void _remove_row(int s[9][9], int poss[9][9][9], int row, int col) {
 }
 
 void _remove_col(int s[9][9], int poss[9][9][9], int row, int col) {
-    // If item in col gets removed, -> number_was_removed = true
-    // TODO
+    for (int r = 0; r < 9; ++r) {
+        if (contains(poss[row][col], s[r][col])) {
+            _remove(poss[row][col], s[r][col]);
+        }
+    }
 }
 
 void remove_row_and_col(int s[9][9], int poss[9][9][9], int row, int col) {
@@ -155,16 +157,16 @@ void solve_easy(int s[9][9]) {
 
 int main(void) {
     printf("Start:\n\n");
-    print_sudoku(sudoku);
+    print_sudoku(sudoku2);
     fill_with_every_number(possible_positions);
 
     do {
-        solve_easy(sudoku);
+        solve_easy(sudoku2);
     } while (number_was_removed);
 
 
     printf("Solved %d:\n\n", solved_num);
-    print_sudoku(sudoku);
+    print_sudoku(sudoku2);
     // print_sudoku(possible_positions);
 
 
