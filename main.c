@@ -6,6 +6,7 @@
 bool number_was_removed = false;
 
 int solved_num = 0;
+int tot_need_solving = 0;
 
 int possible_positions[9][9][9];
 
@@ -155,18 +156,32 @@ void solve_easy(int s[9][9]) {
     }
 }
 
+
+void set_tot_need_solving(int s[9][9]) {
+    tot_need_solving = 0;
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            if (!s[row][col]) {
+                tot_need_solving++;
+            }
+        }
+    }
+}
+
 int main(void) {
     printf("Start:\n\n");
     print_sudoku(sudoku2);
+
     fill_with_every_number(possible_positions);
+    set_tot_need_solving(sudoku2);
 
     do {
         solve_easy(sudoku2);
     } while (number_was_removed);
 
 
-    printf("Solved %d:\n\n", solved_num);
-    print_sudoku(sudoku2);
+    printf("Solved %d/%d:\n\n", solved_num, tot_need_solving);
+    print_sudoku(sudoku);
     // print_sudoku(possible_positions);
 
 
