@@ -111,12 +111,11 @@ void remove_row_and_col(int s[9][9], int poss[9][9][9], int row, int col) {
 }
 
 void remove_square(int s[9][9], int poss[9][9][9], int row, int col) {
-    // If item in square gets removed, -> number_was_removed = true
     // TODO
 }
 
+/// Basic rules - Removes Rows/Cols/Square
 void solve_easy(int s[9][9]) {
-    number_was_removed = false;
     // Checks rows and cols
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
@@ -130,6 +129,7 @@ void solve_easy(int s[9][9]) {
             }
         }
     }
+
 
     // Checks the square
     // TODO
@@ -170,20 +170,18 @@ void set_tot_need_solving(int s[9][9]) {
 
 int main(void) {
     printf("Start:\n\n");
-    print_sudoku(sudoku2);
+    print_sudoku(sudoku);
 
     fill_with_every_number(possible_positions);
-    set_tot_need_solving(sudoku2);
+    set_tot_need_solving(sudoku);
 
     do {
-        solve_easy(sudoku2);
+        number_was_removed = false;
+        solve_easy(sudoku);
     } while (number_was_removed);
-
 
     printf("Solved %d/%d:\n\n", solved_num, tot_need_solving);
     print_sudoku(sudoku);
-    // print_sudoku(possible_positions);
-
 
     return 0;
 }
