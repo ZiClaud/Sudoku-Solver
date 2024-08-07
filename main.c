@@ -1,8 +1,13 @@
+#include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
 
 // Will be true if possible_positions changes a single number
 bool number_was_removed = false;
+
+int solved_num = 0;
+
+int possible_positions[9][9][9];
 
 int sudoku[9][9] = {
     {0, 1, 0, 7, 9, 0, 3, 0, 0},
@@ -27,8 +32,6 @@ int sudoku2[9][9] = {
     {8, 9, 1, 2, 3, 4, 5, 6, 7},
     {9, 1, 2, 3, 4, 5, 6, 7, 8}
 };
-
-int possible_positions[9][9][9];
 
 void fill_with_zeros(int s[9][9]) {
     for (int i = 0; i < 9; ++i) {
@@ -79,14 +82,16 @@ bool contains(int list[9], int val) {
 }
 
 void _remove(int list[9], int val) {
-    list[val - 1] = 0;
+    if (val >= 1 && val <= 9) {
+        number_was_removed = true;
+        list[val - 1] = -1;
+    }
 }
 
 void _remove_row(int s[9][9], int poss[9][9][9], int row, int col) {
     // If item in row gets removed, -> number_was_removed = true
     for (int c = 0; c < 9; ++c) {
         if (contains(poss[row][col], s[row][c])) {
-            number_was_removed = true;
             _remove(poss[row][col], s[row][c]);
         }
     }
@@ -131,17 +136,18 @@ void solve_easy(int s[9][9]) {
     int count;
     int val;
     for (int row = 0; row < 9; ++row) {
-        count = 0;
-        val = -1;
         for (int col = 0; col < 9; ++col) {
+            count = 0;
+            val = -1;
             for (int i = 0; i < 9; ++i) {
-                if (possible_positions[row][col][i]) {
+                if (possible_positions[row][col][i] != -1) {
                     count++;
                     val = possible_positions[row][col][i];
                 }
             }
             if (count == 1) {
                 s[row][col] = val;
+                solved_num++;
             }
         }
     }
@@ -149,16 +155,16 @@ void solve_easy(int s[9][9]) {
 
 int main(void) {
     printf("Start:\n\n");
-    print_sudoku(sudoku2);
+    print_sudoku(sudoku);
     fill_with_every_number(possible_positions);
 
     do {
-        solve_easy(sudoku2);
+        solve_easy(sudoku);
     } while (number_was_removed);
 
 
-    printf("Solved:\n\n");
-    print_sudoku(sudoku2);
+    printf("Solved %d:\n\n", solved_num);
+    print_sudoku(sudoku);
     // print_sudoku(possible_positions);
 
 
