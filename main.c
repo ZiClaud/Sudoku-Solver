@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int s1[9][9] = {
+int sudoku[9][9] = {
     {0, 1, 0, 7, 9, 0, 3, 0, 0},
     {4, 0, 0, 0, 6, 0, 0, 1, 0},
     {0, 0, 9, 3, 8, 0, 0, 0, 5},
@@ -11,9 +11,6 @@ int s1[9][9] = {
     {0, 0, 6, 8, 0, 2, 0, 0, 7},
     {9, 0, 1, 0, 0, 0, 0, 6, 0}
 };
-int s2[9][9];
-int s3[9][9];
-int s4[9][9];
 
 
 void fill_with_zeros(int s[9][9]) {
@@ -25,27 +22,26 @@ void fill_with_zeros(int s[9][9]) {
 }
 
 void print_sudoku(int s[9][9]) {
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            if ((j + 1) % 3 == 0 && j != 8) {
-                printf("%d|", s[i][j]);
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            if ((col + 1) % 3 == 0 && col != 8) {
+                printf("%d|", s[row][col]);
             } else {
-                printf("%d ", s[i][j]);
+                printf("%d ", s[row][col]);
             }
         }
         printf("\n");
-        if ((i + 1) % 3 == 0 && i != 8) {
+        if ((row + 1) % 3 == 0 && row != 8) {
             printf("-----------------\n");
         }
     }
+
+    // printf("%d", s[1][0]); // 4
+    // printf("%d", s[0][1]); // 1
 }
 
 int main(void) {
-    fill_with_zeros(s2);
-    fill_with_zeros(s3);
-    fill_with_zeros(s4);
-
-    print_sudoku(s1);
+    print_sudoku(sudoku);
 
     return 0;
 }
