@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <assert.h>
 #include "test.h"
+
+#include "basics.h"
 #include "print.h"
 
 void _fill_with_zeros(int s[9][9]) {
@@ -21,11 +23,12 @@ void set_custom_sudoku(int sudoku[9][9]) {
     _fill_with_zeros(sudoku);
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j) {
+            sudoku[i][j] = VOID_CELL;
+            print_sudoku(sudoku);
             printf("Enter an integer (between 0 and 9): ");
             assert(scanf("%d", &number));
             assert(number >= 0 && number <= 9);
             sudoku[i][j] = number;
-            print_sudoku(sudoku);
         }
     }
 }
@@ -61,6 +64,48 @@ void set_sudoku_ny(int sudoku[9][9]) {
         {1, 0, 6, 0, 0, 0, 4, 8, 3},
         {0, 0, 0, 4, 3, 9, 0, 0, 1},
         {0, 3, 2, 0, 6, 0, 0, 0, 0}
+    };
+
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
+            sudoku[i][j] = s[i][j];
+        }
+    }
+}
+
+void set_sudoku_ny_med(int sudoku[9][9]) {
+    const int s[9][9] = {
+        {3, 0, 9, 4, 0, 0, 7, 0, 1},
+        {0, 6, 0, 0, 0, 0, 0, 0, 0},
+        {4, 0, 0, 0, 0, 0, 0, 5, 0},
+        {0, 0, 0, 0, 0, 0, 9, 7, 0},
+        {9, 0, 0, 0, 0, 4, 0, 6, 2},
+        {0, 0, 0, 0, 1, 7, 0, 0, 0},
+        {0, 0, 0, 0, 9, 0, 6, 0, 0},
+        {0, 0, 0, 7, 0, 8, 0, 0, 0}, // 9 in s[7][1]
+        {8, 0, 2, 0, 0, 3, 0, 0, 9}
+    };
+
+    for (int i = 0; i < 9; ++i) {
+        for (int j = 0; j < 9; ++j) {
+            sudoku[i][j] = s[i][j];
+        }
+    }
+}
+
+
+void set_sudoku_ny_hard(int sudoku[9][9]) {
+    // TODO
+    const int s[9][9] = {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 
     for (int i = 0; i < 9; ++i) {

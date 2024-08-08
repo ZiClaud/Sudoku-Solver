@@ -21,7 +21,7 @@ int main(void) {
     bool number_was_removed;
 
     int sudoku[9][9];
-    set_sudoku(sudoku);
+    set_sudoku_ny_med(sudoku);
 
     int possible_positions[9][9][9];
 
