@@ -69,6 +69,8 @@ void solve_easy(int s[9][9], int possible_positions[9][9][9], bool *number_was_r
             if (count == 1) {
                 s[row][col] = val;
                 (*solved_num)++;
+            } else if (count == 0 && s[row][col] == 0) {
+                s[row][col] = -1;
             }
         }
     }

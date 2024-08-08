@@ -14,10 +14,12 @@ endif ()
 add_executable(
         Sudoku_Solver
         main.c
-        print.c
         print.h
-        basic_solver.c
+        print.c
         basic_solver.h
+        basic_solver.c
         basic_operations.h
         basic_operations.c
+        test.h
+        test.c
 )
