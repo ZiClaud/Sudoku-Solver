@@ -49,10 +49,7 @@ void remove_possible_positions_basic(int s[9][9], int possible_positions[9][9][9
                 remove_row_and_col(s, possible_positions, row, col, is_changed);
                 remove_square(s, possible_positions, row, col, is_changed);
             } else {
-                // Sets all values to VOID_CELL
-                for (int i = 0; i < 9; ++i) {
-                    possible_positions[row][col][i] = VOID_CELL;
-                }
+                clear_possible_positions(possible_positions, row, col);
             }
         }
     }
@@ -71,7 +68,7 @@ void add_sudoku(int s[9][9], int possible_positions[9][9][9], int *solved_num) {
                 }
             }
             if (count == 1) {
-                insert_value(s, row, col, val, solved_num);
+                insert_value(s, possible_positions, row, col, val, solved_num);
             } else if (count == 0 && s[row][col] == 0) {
                 s[row][col] = VOID_CELL;
             }

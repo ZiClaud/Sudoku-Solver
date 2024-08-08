@@ -9,7 +9,7 @@
 /// Removes poss val if its the only one in the row
 void _only_row(int s[9][9], int poss[9][9][9], bool *is_changed, int *solved_num) {
     for (int row = 0; row < 9; ++row) {
-        for (int i = 0; i < 9; ++i) {
+        for (int i = 1; i <= 9; ++i) {
             int count = 0;
             int col = -1;
 
@@ -20,7 +20,7 @@ void _only_row(int s[9][9], int poss[9][9][9], bool *is_changed, int *solved_num
                 }
             }
             if (count == 1 && s[row][col] == 0) {
-                insert_value(s, row, col, i, solved_num);
+                insert_value(s, poss, row, col, i, solved_num);
                 *is_changed = true;
             }
         }
@@ -41,7 +41,7 @@ void _only_col(int s[9][9], int poss[9][9][9], bool *is_changed, int *solved_num
                 }
             }
             if (count == 1 && s[row][col] == 0) {
-                insert_value(s, row, col, i, solved_num);
+                insert_value(s, poss, row, col, i, solved_num);
                 *is_changed = true;
             }
         }
@@ -52,16 +52,10 @@ void _only_col(int s[9][9], int poss[9][9][9], bool *is_changed, int *solved_num
 void place_possible_positions_med(int s[9][9], int possible_positions[9][9][9], bool *is_changed, int *solved_num) {
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
-            if (s[row][col] == 0) {
-                _only_row(s, possible_positions, is_changed, solved_num);
-                _only_col(s, possible_positions, is_changed, solved_num);
-                //_only_square(s, possible_positions, row, col, is_changed);
-            } else {
-                // Sets all values to VOID_CELL
-                for (int i = 0; i < 9; ++i) {
-                    possible_positions[row][col][i] = VOID_CELL;
-                }
-            }
+            // TODO: FIX
+            _only_row(s, possible_positions, is_changed, solved_num);
+            // _only_col(s, possible_positions, is_changed, solved_num);
+            // _only_square(s, possible_positions, is_changed, solved_num);
         }
     }
 }

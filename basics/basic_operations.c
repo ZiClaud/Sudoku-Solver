@@ -2,11 +2,20 @@
 #include "basic_operations.h"
 #include "basics.h"
 
+/// Sets all possible_positions values to VOID_CELL
+void clear_possible_positions(int possible_positions[9][9][9], const int row, const int col) {
+    // Sets all values to VOID_CELL
+    for (int i = 0; i < 9; ++i) {
+        possible_positions[row][col][i] = VOID_CELL;
+    }
+}
+
 /// Inserts value to sudoku
-void insert_value(int s[9][9], int row, int col, int val, int *solved_num) {
+void insert_value(int s[9][9], int possible_positions[9][9][9], const int row, const int col, const int val, int *solved_num) {
     assert(s[row][col] == 0);
     s[row][col] = val;
     (*solved_num)++;
+    clear_possible_positions(possible_positions, row, col);
 }
 
 /// Returns true if list contains value (That's neither -1 nor 0)

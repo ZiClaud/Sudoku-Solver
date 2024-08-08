@@ -7,7 +7,9 @@
 
 #include <stdbool.h>
 
-void insert_value(int s[9][9], int row, int col, int val, int *solved_num);
+void clear_possible_positions(int possible_positions[9][9][9], int row, int col);
+
+void insert_value(int s[9][9], int possible_positions[9][9][9], int row, int col, int val, int *solved_num);
 
 bool contains(int list[9], int val);
 
