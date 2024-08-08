@@ -1,10 +1,9 @@
-#include <assert.h>
 #include "basic_operations.h"
 #include "basics.h"
 
 
-// Returns true if list contains value (That's not -1)
-bool contains(int list[9], int val) {
+/// Returns true if list contains value (That's not -1)
+bool contains(int list[9], const int val) {
     if (val == VOID_CELL) {
         return false;
     }
@@ -12,8 +11,8 @@ bool contains(int list[9], int val) {
 }
 
 
-void _remove(int list[9], int val, bool *number_was_removed) {
-    // TODO: assert(val >= 1 && val <= 9);
+void _remove(int list[9], const int val, bool *number_was_removed) {
+    // TODO: assert(val >= 1 && val <= 9); ?
     if (val >= 1 && val <= 9) {
         *number_was_removed = true;
         list[val - 1] = VOID_CELL;

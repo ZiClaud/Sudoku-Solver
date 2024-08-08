@@ -1,6 +1,5 @@
 #include <stdbool.h>
 #include <stdio.h>
-
 #include "print.h"
 #include "basic_operations.h"
 #include "basic_solver.h"

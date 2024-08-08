@@ -3,10 +3,8 @@
 //
 
 #include <stdio.h>
-#include "test.h"
-
 #include <assert.h>
-
+#include "test.h"
 #include "print.h"
 
 void _fill_with_zeros(int s[9][9]) {

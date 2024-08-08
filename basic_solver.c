@@ -2,7 +2,7 @@
 #include "basic_operations.h"
 #include "basics.h"
 
-void _remove_row(int s[9][9], int poss[9][9][9], int row, int col, bool *number_was_removed) {
+void _remove_row(int s[9][9], int poss[9][9][9], const int row, const int col, bool *number_was_removed) {
     for (int c = 0; c < 9; ++c) {
         if (contains(poss[row][col], s[row][c])) {
             _remove(poss[row][col], s[row][c], number_was_removed);
@@ -10,7 +10,7 @@ void _remove_row(int s[9][9], int poss[9][9][9], int row, int col, bool *number_
     }
 }
 
-void _remove_col(int s[9][9], int poss[9][9][9], int row, int col, bool *number_was_removed) {
+void _remove_col(int s[9][9], int poss[9][9][9], const int row, const int col, bool *number_was_removed) {
     for (int r = 0; r < 9; ++r) {
         if (contains(poss[row][col], s[r][col])) {
             _remove(poss[row][col], s[r][col], number_was_removed);
@@ -18,12 +18,12 @@ void _remove_col(int s[9][9], int poss[9][9][9], int row, int col, bool *number_
     }
 }
 
-void remove_row_and_col(int s[9][9], int poss[9][9][9], int row, int col, bool *number_was_removed) {
-   _remove_row(s, poss, row, col, number_was_removed);
-   _remove_col(s, poss, row, col, number_was_removed);
+void remove_row_and_col(int s[9][9], int poss[9][9][9], const int row, const int col, bool *number_was_removed) {
+    _remove_row(s, poss, row, col, number_was_removed);
+    _remove_col(s, poss, row, col, number_was_removed);
 }
 
-void remove_square(int s[9][9], int poss[9][9][9], int row, int col, bool *number_was_removed) {
+void remove_square(int s[9][9], int poss[9][9][9], const int row, const int col, bool *number_was_removed) {
     int t_row = row / 3;
     int t_col = col / 3;
 
@@ -57,12 +57,10 @@ void solve_easy(int s[9][9], int possible_positions[9][9][9], bool *number_was_r
     }
 
     // Add all possible positions where theres just a number that fits there
-    int count;
-    int val;
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
-            count = 0;
-            val = VOID_CELL;
+            int count = 0;
+            int val = VOID_CELL;
             for (int i = 0; i < 9; ++i) {
                 if (possible_positions[row][col][i] != VOID_CELL) {
                     count++;
