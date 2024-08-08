@@ -23,4 +23,6 @@ add_executable(
         basics/basic_operations.c
         solvers/basic_solver.h
         solvers/basic_solver.c
+        solvers/med_solver.h
+        solvers/med_solver.c
 )

@@ -11,9 +11,9 @@ bool contains(int list[9], const int val) {
 }
 
 /// Removes all values of the list that can only contain numbers between 1 and 9
-void rmv(int list[9], const int val, bool *number_was_removed) {
+void rmv(int list[9], const int val, bool *is_changed) {
     assert(val >= 1 && val <= 9);
-    *number_was_removed = true;
+    *is_changed = true;
     list[val - 1] = VOID_CELL;
 }
 

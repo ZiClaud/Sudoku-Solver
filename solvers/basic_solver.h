@@ -4,8 +4,9 @@
 
 #ifndef BASIC_SOLVER_H
 #define BASIC_SOLVER_H
+
 #include <stdbool.h>
 
-void solve_basic(int s[9][9], int possible_positions[9][9][9], bool *number_was_removed, int *solved_num);
+void solve_basic(int s[9][9], int possible_positions[9][9][9], bool *is_changed, int *solved_num);
 
 #endif //BASIC_SOLVER_H
