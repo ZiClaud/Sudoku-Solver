@@ -5,6 +5,8 @@
 #ifndef TEST_H
 #define TEST_H
 
+void set_custom_sudoku(int sudoku[9][9]);
+
 void set_sudoku(int sudoku[9][9]);
 
 void set_sudoku_ny(int sudoku[9][9]);

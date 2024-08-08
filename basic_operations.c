@@ -1,5 +1,7 @@
 #include <assert.h>
 #include "basic_operations.h"
+#include "basics.h"
+
 
 // Returns true if list contains value
 bool contains(int list[9], int val) {
@@ -11,7 +13,7 @@ void _remove(int list[9], int val, bool *number_was_removed) {
     // TODO: assert(val >= 1 && val <= 9);
     if (val >= 1 && val <= 9) {
         *number_was_removed = true;
-        list[val - 1] = -1;
+        list[val - 1] = VOID_CELL;
     }
 }
 

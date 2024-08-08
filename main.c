@@ -6,14 +6,6 @@
 #include "basic_solver.h"
 #include "test.h"
 
-void fill_with_zeros(int s[9][9]) {
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            s[i][j] = 0;
-        }
-    }
-}
-
 void fill_with_every_number(int s[9][9][9]) {
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
@@ -30,7 +22,7 @@ int main(void) {
     bool number_was_removed;
 
     int sudoku[9][9];
-    set_sudoku_ny(sudoku);
+    set_sudoku(sudoku);
 
     int possible_positions[9][9][9];
 

@@ -22,4 +22,5 @@ add_executable(
         basic_operations.c
         test.h
         test.c
+        basics.h
 )
