@@ -1,46 +1,33 @@
 #include <stdbool.h>
 #include <stdio.h>
-#include "print.h"
-#include "basic_operations.h"
-#include "basic_solver.h"
+#include "basics/print.h"
+#include "basics/basic_operations.h"
+#include "solvers/basic_solver.h"
 #include "test.h"
-
-void fill_with_every_number(int s[9][9][9]) {
-    for (int row = 0; row < 9; ++row) {
-        for (int col = 0; col < 9; ++col) {
-            for (int i = 0; i < 9; ++i) {
-                s[row][col][i] = i + 1;
-            }
-        }
-    }
-}
 
 
 int main(void) {
-    // Will be true if possible_positions changes a single number
-    bool number_was_removed;
-
     int sudoku[9][9];
-    set_sudoku_ny_med(sudoku);
+    set_sudoku(sudoku);
 
+    // Will be true if possible_positions removes a single number
+    bool is_removed;
     int possible_positions[9][9][9];
-
-    const int solvable = set_solvable(sudoku);
-    int solved = 0;
-
-
     fill_with_every_number(possible_positions);
 
-    printf("Start:\n\n");
+    const int to_solve = set_to_solve(sudoku);
+    int solved = 0;
+
+    printf("Start:\n");
     print_sudoku(sudoku);
 
     do {
-        number_was_removed = false;
-        solve_easy(sudoku, possible_positions, &number_was_removed, &solved);
-    } while (number_was_removed);
+        is_removed = false;
+        solve_basic(sudoku, possible_positions, &is_removed, &solved);
+    } while (is_removed);
 
     print_sudoku(sudoku);
-    printf("Solved %d/%d:\n\n", solved, solvable);
+    printf("Solved %d/%d:\n\n", solved, to_solve);
 
     return 0;
 }

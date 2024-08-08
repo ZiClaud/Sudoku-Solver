@@ -2,7 +2,6 @@
 #include "print.h"
 #include "basics.h"
 
-
 void print_sudoku(int s[9][9]) {
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {

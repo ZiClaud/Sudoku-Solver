@@ -6,8 +6,8 @@
 #include <assert.h>
 #include "test.h"
 
-#include "basics.h"
-#include "print.h"
+#include "basics/basics.h"
+#include "basics/print.h"
 
 void _fill_with_zeros(int s[9][9]) {
     for (int i = 0; i < 9; ++i) {

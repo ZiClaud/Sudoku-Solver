@@ -9,8 +9,10 @@
 
 bool contains(int list[9], int val);
 
-void _remove(int list[9], int val, bool *number_was_removed);
+void rmv(int list[9], int val, bool *number_was_removed);
 
-int set_solvable(int s[9][9]);
+int set_to_solve(int s[9][9]);
+
+void fill_with_every_number(int poss[9][9][9]);
 
 #endif //BASIC_OPERATIONS_H
