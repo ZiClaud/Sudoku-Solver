@@ -5,13 +5,12 @@
 void _remove_row(int s[9][9], int poss[9][9][9], int row, int col, bool *number_was_removed) {
     for (int c = 0; c < 9; ++c) {
         if (contains(poss[row][col], s[row][c])) {
-            //_remove(poss[row][col], s[row][c], number_was_removed);
+            _remove(poss[row][col], s[row][c], number_was_removed);
         }
     }
 }
 
 void _remove_col(int s[9][9], int poss[9][9][9], int row, int col, bool *number_was_removed) {
-    // TODO: Fix
     for (int r = 0; r < 9; ++r) {
         if (contains(poss[row][col], s[r][col])) {
             _remove(poss[row][col], s[r][col], number_was_removed);
@@ -20,13 +19,16 @@ void _remove_col(int s[9][9], int poss[9][9][9], int row, int col, bool *number_
 }
 
 void remove_row_and_col(int s[9][9], int poss[9][9][9], int row, int col, bool *number_was_removed) {
-    _remove_row(s, poss, row, col, number_was_removed);
-    _remove_col(s, poss, row, col, number_was_removed);
+   _remove_row(s, poss, row, col, number_was_removed);
+   _remove_col(s, poss, row, col, number_was_removed);
 }
 
 void remove_square(int s[9][9], int poss[9][9][9], int row, int col, bool *number_was_removed) {
     int t_row = row / 3;
     int t_col = col / 3;
+
+    t_row *= 3;
+    t_col *= 3;
 
     for (int r = t_row; r < t_row + 3; ++r) {
         for (int c = t_col; c < t_col + 3; ++c) {

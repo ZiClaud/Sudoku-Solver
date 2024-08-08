@@ -33,7 +33,7 @@ void set_custom_sudoku(int sudoku[9][9]) {
 }
 
 void set_sudoku(int sudoku[9][9]) {
-    int s[9][9] = {
+    const int s[9][9] = {
         {0, 1, 0, 7, 9, 0, 3, 0, 0},
         {4, 0, 0, 0, 6, 0, 0, 1, 0},
         {0, 0, 9, 3, 8, 0, 0, 0, 5},
@@ -47,13 +47,13 @@ void set_sudoku(int sudoku[9][9]) {
 
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = s[i][j]; // Copy values from s to sudoku
+            sudoku[i][j] = s[i][j];
         }
     }
 }
 
 void set_sudoku_ny(int sudoku[9][9]) {
-    int s[9][9] = {
+    const int s[9][9] = {
         {0, 5, 0, 6, 0, 1, 0, 0, 8},
         {0, 2, 4, 9, 8, 0, 3, 0, 0},
         {9, 8, 0, 2, 0, 0, 7, 4, 0},
@@ -67,33 +67,13 @@ void set_sudoku_ny(int sudoku[9][9]) {
 
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = s[i][j]; // Copy values from s to sudoku
+            sudoku[i][j] = s[i][j];
         }
     }
 }
 
-void set_sudoku2(int sudoku[9][9]) {
-    int s[9][9] = {
-        {1, 2, 3, 4, 0, 0, 7, 8, 9},
-        {2, 3, 4, 5, 6, 7, 8, 9, 1},
-        {3, 4, 5, 6, 7, 8, 9, 1, 2},
-        {4, 5, 6, 7, 8, 9, 1, 2, 3},
-        {5, 6, 7, 8, 9, 1, 2, 3, 4},
-        {6, 7, 8, 9, 1, 2, 3, 4, 5},
-        {7, 8, 9, 1, 2, 3, 4, 5, 6},
-        {8, 9, 1, 2, 3, 4, 5, 6, 7},
-        {9, 1, 2, 3, 4, 5, 6, 7, 8}
-    };
-
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = s[i][j]; // Copy values from s to sudoku
-        }
-    }
-}
-
-void set_sudoku3(int sudoku[9][9]) {
-    int s[9][9] = {
+void set_sudoku_test(int sudoku[9][9]) {
+    const int s[9][9] = {
         {0, 0, 0, 6, 0, 1, 0, 0, 0},
         {0, 0, 0, 9, 8, 0, 0, 0, 0},
         {0, 0, 0, 2, 0, 0, 0, 0, 0},
@@ -107,7 +87,7 @@ void set_sudoku3(int sudoku[9][9]) {
 
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = s[i][j]; // Copy values from s to sudoku
+            sudoku[i][j] = s[i][j];
         }
     }
 }

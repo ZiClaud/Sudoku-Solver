@@ -11,6 +11,6 @@ bool contains(int list[9], int val);
 
 void _remove(int list[9], int val, bool *number_was_removed);
 
-int set_tot_need_solving(int s[9][9]);
+int set_solvable(int s[9][9]);
 
 #endif //BASIC_OPERATIONS_H

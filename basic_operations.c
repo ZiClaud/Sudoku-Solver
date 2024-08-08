@@ -3,8 +3,11 @@
 #include "basics.h"
 
 
-// Returns true if list contains value
+// Returns true if list contains value (That's not -1)
 bool contains(int list[9], int val) {
+    if (val == VOID_CELL) {
+        return false;
+    }
     return list[val - 1] == val;
 }
 
@@ -17,8 +20,7 @@ void _remove(int list[9], int val, bool *number_was_removed) {
     }
 }
 
-
-int set_tot_need_solving(int s[9][9]) {
+int set_solvable(int s[9][9]) {
     int tot_need_solving = 0;
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {

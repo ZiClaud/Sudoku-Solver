@@ -26,8 +26,8 @@ int main(void) {
 
     int possible_positions[9][9][9];
 
-    int tot_need_solving = set_tot_need_solving(sudoku);
-    int solved_num = 0;
+    const int solvable = set_solvable(sudoku);
+    int solved = 0;
 
 
     fill_with_every_number(possible_positions);
@@ -37,11 +37,11 @@ int main(void) {
 
     do {
         number_was_removed = false;
-        solve_easy(sudoku, possible_positions, &number_was_removed, &solved_num);
+        solve_easy(sudoku, possible_positions, &number_was_removed, &solved);
     } while (number_was_removed);
 
-    printf("Solved %d/%d:\n\n", solved_num, tot_need_solving);
     print_sudoku(sudoku);
+    printf("Solved %d/%d:\n\n", solved, solvable);
 
     return 0;
 }
