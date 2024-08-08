@@ -2,6 +2,13 @@
 #include "basic_operations.h"
 #include "basics.h"
 
+/// Inserts value to sudoku
+void insert_value(int s[9][9], int row, int col, int val, int *solved_num) {
+    assert(s[row][col] == 0);
+    s[row][col] = val;
+    (*solved_num)++;
+}
+
 /// Returns true if list contains value (That's neither -1 nor 0)
 bool contains(int list[9], const int val) {
     if (val == VOID_CELL || val == 0) {

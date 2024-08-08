@@ -71,8 +71,7 @@ void add_sudoku(int s[9][9], int possible_positions[9][9][9], int *solved_num) {
                 }
             }
             if (count == 1) {
-                s[row][col] = val;
-                (*solved_num)++;
+                insert_value(s, row, col, val, solved_num);
             } else if (count == 0 && s[row][col] == 0) {
                 s[row][col] = VOID_CELL;
             }

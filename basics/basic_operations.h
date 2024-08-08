@@ -7,6 +7,8 @@
 
 #include <stdbool.h>
 
+void insert_value(int s[9][9], int row, int col, int val, int *solved_num);
+
 bool contains(int list[9], int val);
 
 void rmv(int list[9], int val, bool *is_changed);
