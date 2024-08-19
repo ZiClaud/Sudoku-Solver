@@ -11,7 +11,7 @@ void _only_row(int s[9][9], int poss[9][9][9], bool *is_changed, int *solved_num
     for (int row = 0; row < 9; ++row) {
         for (int i = 1; i <= 9; ++i) {
             int count = 0;
-            int col = -1;
+            int col;
 
             for (int c = 0; c < 9; ++c) {
                 if (contains(poss[row][c], i)) {
@@ -32,7 +32,7 @@ void _only_col(int s[9][9], int poss[9][9][9], bool *is_changed, int *solved_num
     for (int col = 0; col < 9; ++col) {
         for (int i = 0; i < 9; ++i) {
             int count = 0;
-            int row = -1;
+            int row;
 
             for (int r = 0; r < 9; ++r) {
                 if (contains(poss[r][col], i)) {

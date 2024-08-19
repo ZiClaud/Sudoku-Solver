@@ -9,7 +9,7 @@
 
 int main(void) {
     int sudoku[9][9];
-    set_sudoku_ny_med(sudoku);
+    set_custom_sudoku_string(sudoku);
 
     // Will be true if possible_positions removes a single number
     bool is_changed;
@@ -25,7 +25,7 @@ int main(void) {
     do {
         is_changed = false;
         solve_basic(sudoku, possible_positions, &is_changed, &solved);
-        solve_med(sudoku, possible_positions, &is_changed, &solved);
+        //solve_med(sudoku, possible_positions, &is_changed, &solved);
     } while (is_changed);
 
     print_sudoku(sudoku);
