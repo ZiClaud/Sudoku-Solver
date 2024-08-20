@@ -9,8 +9,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "basics/basics.h"
-#include "basics/print.h"
+#include "../basics/basics.h"
+#include "../basics/print.h"
 
 void _fill_with_zeros(int s[9][9]) {
     for (int i = 0; i < 9; ++i) {

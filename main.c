@@ -4,7 +4,7 @@
 #include "basics/basic_operations.h"
 #include "solvers/basic_solver.h"
 #include "solvers/med_solver.h"
-#include "test.h"
+#include "examples/test.h"
 
 
 int main(void) {

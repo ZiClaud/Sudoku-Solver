@@ -14,8 +14,8 @@ endif ()
 add_executable(
         Sudoku_Solver
         main.c
-        test.h
-        test.c
+        examples/test.h
+        examples/test.c
         basics/basics.h
         basics/print.h
         basics/print.c
