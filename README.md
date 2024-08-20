@@ -2,4 +2,4 @@
 
 ### Made in C
 
-Sudoku examples in `test.c` are from https://opensudoku.moire.org/
+Sudoku examples in folder `examples` are from https://opensudoku.moire.org/
