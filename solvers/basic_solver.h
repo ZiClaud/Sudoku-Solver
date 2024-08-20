@@ -7,6 +7,10 @@
 
 #include <stdbool.h>
 
-void solve_basic(int s[9][9], int possible_positions[9][9][9], bool *is_changed, int *solved_num);
+void remove_poss_pos(int s[9][9], int poss_pos[9][9][9], bool *is_changed);
+
+void add_sudoku(int s[9][9], int poss_pos[9][9][9], int *solved_num);
+
+void solve_basic(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num);
 
 #endif //BASIC_SOLVER_H

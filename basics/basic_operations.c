@@ -2,21 +2,20 @@
 #include "basic_operations.h"
 #include "basics.h"
 
-/// Sets all possible_positions values to VOID_CELL
-void clear_possible_positions(int possible_positions[9][9][9], const int row, const int col) {
+/// Sets all poss_pos values to VOID_CELL
+void clear_poss_pos(int poss_pos[9][9][9], const int row, const int col) {
     // Sets all values to VOID_CELL
     for (int i = 0; i < 9; ++i) {
-        possible_positions[row][col][i] = VOID_CELL;
+        poss_pos[row][col][i] = VOID_CELL;
     }
 }
 
 /// Inserts value to sudoku
-void insert_value(int s[9][9], int possible_positions[9][9][9], const int row, const int col, const int val,
-                  int *solved_num) {
+void insert_value(int s[9][9], int poss_pos[9][9][9], const int row, const int col, const int val, int *solved_num) {
     assert(s[row][col] == 0);
     s[row][col] = val;
     (*solved_num)++;
-    clear_possible_positions(possible_positions, row, col);
+    clear_poss_pos(poss_pos, row, col);
 }
 
 /// Returns true if list contains value (That's neither -1 nor 0)
@@ -59,12 +58,12 @@ int set_to_solve(int s[9][9]) {
     return tot_need_solving;
 }
 
-/// Fills possible_positions with all numbers (1 to 9)
-void fill_with_every_number(int poss[9][9][9]) {
+/// Fills poss_pos with all numbers (1 to 9)
+void fill_with_every_number(int poss_pos[9][9][9]) {
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
             for (int i = 0; i < 9; ++i) {
-                poss[row][col][i] = i + 1;
+                poss_pos[row][col][i] = i + 1;
             }
         }
     }

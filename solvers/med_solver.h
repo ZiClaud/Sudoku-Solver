@@ -7,6 +7,6 @@
 
 #include <stdbool.h>
 
-void solve_med(int s[9][9], int possible_positions[9][9][9], bool *is_changed, int *solved_num);
+void solve_med(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num);
 
 #endif //MED_SOLVER_H

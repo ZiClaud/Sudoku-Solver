@@ -32,10 +32,10 @@ int main(void) {
     int sudoku[9][9];
     set_custom_sudoku_string(sudoku);
 
-    // Will be true if possible_positions removes a single number
+    // Will be true if poss_pos removes a single number
     bool is_changed;
-    int possible_positions[9][9][9];
-    fill_with_every_number(possible_positions);
+    int poss_pos[9][9][9];
+    fill_with_every_number(poss_pos);
 
     const int to_solve = set_to_solve(sudoku);
     int solved = 0;
@@ -43,12 +43,13 @@ int main(void) {
     printf("Start:\n");
     print_sudoku(sudoku);
 
+
     do {
         do {
             is_changed = false;
-            solve_basic(sudoku, possible_positions, &is_changed, &solved);
+            solve_basic(sudoku, poss_pos, &is_changed, &solved);
         } while (is_changed);
-        solve_med(sudoku, possible_positions, &is_changed, &solved);
+        solve_med(sudoku, poss_pos, &is_changed, &solved);
     } while (is_changed);
 
     print_result(sudoku, solved, to_solve);
