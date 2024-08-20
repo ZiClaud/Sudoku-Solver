@@ -13,6 +13,8 @@ void insert_value(int s[9][9], int possible_positions[9][9][9], int row, int col
 
 bool contains(int list[9], int val);
 
+bool has_errors(int s[9][9]);
+
 void rmv(int list[9], int val, bool *is_changed);
 
 int set_to_solve(int s[9][9]);

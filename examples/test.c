@@ -48,7 +48,6 @@ void set_custom_sudoku_string(int sudoku[9][9]) {
             sudoku[i][j] = numbers[(i) * 9 + (j + 1) - 1] - '0';
         }
     }
-    print_sudoku(sudoku);
     free(numbers);
 }
 

@@ -11,7 +11,8 @@ void clear_possible_positions(int possible_positions[9][9][9], const int row, co
 }
 
 /// Inserts value to sudoku
-void insert_value(int s[9][9], int possible_positions[9][9][9], const int row, const int col, const int val, int *solved_num) {
+void insert_value(int s[9][9], int possible_positions[9][9][9], const int row, const int col, const int val,
+                  int *solved_num) {
     assert(s[row][col] == 0);
     s[row][col] = val;
     (*solved_num)++;
@@ -24,6 +25,18 @@ bool contains(int list[9], const int val) {
         return false;
     }
     return list[val - 1] == val;
+}
+
+/// Returns true if sudoku contains VOID_CELL
+bool has_errors(int s[9][9]) {
+    for (int row = 0; row < 9; ++row) {
+        for (int col = 0; col < 9; ++col) {
+            if (s[row][col] == VOID_CELL) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 /// Removes all values of the list that can only contain numbers between 1 and 9

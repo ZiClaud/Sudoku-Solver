@@ -54,7 +54,8 @@ void place_possible_positions_med(int s[9][9], int possible_positions[9][9][9], 
         for (int col = 0; col < 9; ++col) {
             // TODO: FIX
             _only_row(s, possible_positions, is_changed, solved_num);
-            // _only_col(s, possible_positions, is_changed, solved_num);
+            if (!*is_changed)
+                _only_col(s, possible_positions, is_changed, solved_num);
             // _only_square(s, possible_positions, is_changed, solved_num);
         }
     }

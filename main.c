@@ -23,12 +23,17 @@ int main(void) {
     print_sudoku(sudoku);
 
     do {
-        is_changed = false;
-        solve_basic(sudoku, possible_positions, &is_changed, &solved);
-        //solve_med(sudoku, possible_positions, &is_changed, &solved);
+        do {
+            is_changed = false;
+            solve_basic(sudoku, possible_positions, &is_changed, &solved);
+        } while (is_changed);
+        solve_med(sudoku, possible_positions, &is_changed, &solved);
     } while (is_changed);
 
     print_sudoku(sudoku);
+    if (has_errors(sudoku)) {
+        printf("WARNING: Errors found\n");
+    }
     printf("Solved %d/%d:\n\n", solved, to_solve);
 
     return 0;
