@@ -1,44 +1,12 @@
 #include "basic_solver.h"
 #include "../basics/basic_operations.h"
 #include "../basics/basics.h"
-
-void _remove_row(int s[9][9], int poss_pos[9][9][9], const int row, const int col, bool *is_changed) {
-    for (int c = 0; c < 9; ++c) {
-        if (contains(poss_pos[row][col], s[row][c])) {
-            rmv(poss_pos[row][col], s[row][c], is_changed);
-        }
-    }
-}
-
-void _remove_col(int s[9][9], int poss_pos[9][9][9], const int row, const int col, bool *is_changed) {
-    for (int r = 0; r < 9; ++r) {
-        if (contains(poss_pos[row][col], s[r][col])) {
-            rmv(poss_pos[row][col], s[r][col], is_changed);
-        }
-    }
-}
+#include "../basics/poss_pos_operations.h"
 
 /// Removes all possible values in poss_pos[row][col], that also appear in the row and col
 void remove_row_and_col(int s[9][9], int poss_pos[9][9][9], const int row, const int col, bool *is_changed) {
-    _remove_row(s, poss_pos, row, col, is_changed);
-    _remove_col(s, poss_pos, row, col, is_changed);
-}
-
-/// Removes all possible values in poss_pos[row][col], that also appear in the square it's in
-void remove_square(int s[9][9], int poss_pos[9][9][9], const int row, const int col, bool *is_changed) {
-    int t_row = row / 3;
-    int t_col = col / 3;
-
-    t_row *= 3;
-    t_col *= 3;
-
-    for (int r = t_row; r < t_row + 3; ++r) {
-        for (int c = t_col; c < t_col + 3; ++c) {
-            if (contains(poss_pos[row][col], s[r][c])) {
-                rmv(poss_pos[row][col], s[r][c], is_changed);
-            }
-        }
-    }
+    remove_row(s, poss_pos, row, col, is_changed);
+    remove_col(s, poss_pos, row, col, is_changed);
 }
 
 /// Removes all [poss_pos] numbers that are not in the same row/col/square

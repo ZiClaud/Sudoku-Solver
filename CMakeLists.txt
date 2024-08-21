@@ -25,4 +25,6 @@ add_executable(
         solvers/basic_solver.c
         solvers/med_solver.h
         solvers/med_solver.c
+        basics/poss_pos_operations.c
+        basics/poss_pos_operations.h
 )

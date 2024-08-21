@@ -1,14 +1,7 @@
 #include <assert.h>
 #include "basic_operations.h"
 #include "basics.h"
-
-/// Sets all poss_pos values to VOID_CELL
-void clear_poss_pos(int poss_pos[9][9][9], const int row, const int col) {
-    // Sets all values to VOID_CELL
-    for (int i = 0; i < 9; ++i) {
-        poss_pos[row][col][i] = VOID_CELL;
-    }
-}
+#include "poss_pos_operations.h"
 
 /// Inserts value to sudoku
 void insert_value(int s[9][9], int poss_pos[9][9][9], const int row, const int col, const int val, int *solved_num) {
@@ -56,15 +49,4 @@ int set_to_solve(int s[9][9]) {
         }
     }
     return tot_need_solving;
-}
-
-/// Fills poss_pos with all numbers (1 to 9)
-void fill_with_every_number(int poss_pos[9][9][9]) {
-    for (int row = 0; row < 9; ++row) {
-        for (int col = 0; col < 9; ++col) {
-            for (int i = 0; i < 9; ++i) {
-                poss_pos[row][col][i] = i + 1;
-            }
-        }
-    }
 }

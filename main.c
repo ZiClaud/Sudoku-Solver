@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "basics/print.h"
 #include "basics/basic_operations.h"
+#include "basics/poss_pos_operations.h"
 #include "solvers/basic_solver.h"
 #include "solvers/med_solver.h"
 #include "examples/test.h"

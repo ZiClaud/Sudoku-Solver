@@ -8,6 +8,7 @@
 
 #include "basic_solver.h"
 #include "../basics/basic_operations.h"
+#include "../basics/poss_pos_operations.h"
 
 /// Inserts value in [s] if its the only one in the row of [poss_pos]
 void _only_row(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
@@ -26,7 +27,7 @@ void _only_row(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved
                 assert(col != -1);
                 insert_value(s, poss_pos, row, col, i, solved_num);
                 *is_changed = true;
-                remove_poss_pos(s, poss_pos, is_changed);
+                remove_row(s, poss_pos, row, col, is_changed);
                 return;
             }
         }
@@ -49,29 +50,33 @@ void _only_col(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved
             if (count == 1 && s[row][col] == 0) {
                 insert_value(s, poss_pos, row, col, i, solved_num);
                 *is_changed = true;
-                remove_poss_pos(s, poss_pos, is_changed);
+                remove_col(s, poss_pos, row, col, is_changed);
                 return;
             }
         }
     }
 }
 
+/// Inserts value in [s] if its the only one in the square of [poss_pos]
+void _only_square(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
+    // TODO
+}
+
 /// Places all [poss_pos] numbers that are the only ones in the same row/col/square
 void place_poss_pos_med(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
-            // TODO: FIX
             if (!*is_changed)
                 _only_row(s, poss_pos, is_changed, solved_num);
             if (!*is_changed)
                 _only_col(s, poss_pos, is_changed, solved_num);
-            // if (!*is_changed)
-            //    _only_square(s, poss_pos, is_changed, solved_num);
+            if (!*is_changed)
+                _only_square(s, poss_pos, is_changed, solved_num);
         }
     }
 }
 
 void solve_med(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
-    // TODO: Fix
+    // TODO: Test more
     place_poss_pos_med(s, poss_pos, is_changed, solved_num);
 }
