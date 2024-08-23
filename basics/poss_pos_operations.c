@@ -46,8 +46,8 @@ void remove_col(int s[9][9], int poss_pos[9][9][9], const int row, const int col
 }
 
 
-/// Removes all possible values in poss_pos[row][col], that also appear in the square it's in
-void remove_square(int s[9][9], int poss_pos[9][9][9], const int row, const int col, bool *is_changed) {
+/// Removes all possible values in poss_pos[row][col], that also appear in the box it's in
+void remove_box(int s[9][9], int poss_pos[9][9][9], const int row, const int col, bool *is_changed) {
     int t_row = row / 3;
     int t_col = col / 3;
 

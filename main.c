@@ -15,16 +15,16 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
-void print_result(int sudoku[9][9], int solved, int to_solve) {
+void print_result(int sudoku[9][9], int solved_cells, int to_solve) {
     print_sudoku(sudoku);
     if (has_errors(sudoku)) {
         printf(ANSI_COLOR_YELLOW "WARNING: Errors found" ANSI_COLOR_RESET "\n");
-        printf(ANSI_COLOR_RED "Solved %d/%d:\n"ANSI_COLOR_RESET "\n", solved, to_solve);
+        printf(ANSI_COLOR_RED "Solved %d/%d:\n"ANSI_COLOR_RESET "\n", solved_cells, to_solve);
     } else {
-        if (solved == to_solve) {
-            printf("Solved %d/%d:\n\n", solved, to_solve);
+        if (solved_cells == to_solve) {
+            printf("Solved %d/%d:\n\n", solved_cells, to_solve);
         } else {
-            printf(ANSI_COLOR_CYAN "Solved %d/%d:\n"ANSI_COLOR_RESET "\n", solved, to_solve);
+            printf(ANSI_COLOR_CYAN "Solved %d/%d:\n"ANSI_COLOR_RESET "\n", solved_cells, to_solve);
         }
     }
 }
@@ -39,7 +39,7 @@ int main(void) {
     fill_with_every_number(poss_pos);
 
     const int to_solve = set_to_solve(sudoku);
-    int solved = 0;
+    int solved_cells = 0;
 
     printf("Start:\n");
     print_sudoku(sudoku);
@@ -48,12 +48,12 @@ int main(void) {
     do {
         do {
             is_changed = false;
-            solve_basic(sudoku, poss_pos, &is_changed, &solved);
+            solve_basic(sudoku, poss_pos, &is_changed, &solved_cells);
         } while (is_changed);
-        solve_med(sudoku, poss_pos, &is_changed, &solved);
+        solve_med(sudoku, poss_pos, &is_changed, &solved_cells);
     } while (is_changed);
 
-    print_result(sudoku, solved, to_solve);
+    print_result(sudoku, solved_cells, to_solve);
 
     return 0;
 }

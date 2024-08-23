@@ -9,13 +9,13 @@ void remove_row_and_col(int s[9][9], int poss_pos[9][9][9], const int row, const
     remove_col(s, poss_pos, row, col, is_changed);
 }
 
-/// Removes all [poss_pos] numbers that are not in the same row/col/square
+/// Removes all [poss_pos] numbers that are not in the same row/col/box
 void remove_poss_pos(int s[9][9], int poss_pos[9][9][9], bool *is_changed) {
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
             if (s[row][col] == 0) {
                 remove_row_and_col(s, poss_pos, row, col, is_changed);
-                remove_square(s, poss_pos, row, col, is_changed);
+                remove_box(s, poss_pos, row, col, is_changed);
             } else {
                 clear_poss_pos(poss_pos, row, col);
             }
@@ -44,7 +44,7 @@ void add_sudoku(int s[9][9], int poss_pos[9][9][9], int *solved_num) {
     }
 }
 
-/// Basic rules - Removes Rows/Cols/Square
+/// Basic rules - Removes Rows/Cols/Box
 void solve_basic(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
     remove_poss_pos(s, poss_pos, is_changed);
     add_sudoku(s, poss_pos, solved_num);

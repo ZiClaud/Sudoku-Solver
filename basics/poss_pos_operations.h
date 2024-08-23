@@ -15,6 +15,6 @@ void remove_row(int s[9][9], int poss_pos[9][9][9], int row, int col, bool *is_c
 
 void remove_col(int s[9][9], int poss_pos[9][9][9], int row, int col, bool *is_changed);
 
-void remove_square(int s[9][9], int poss_pos[9][9][9], int row, int col, bool *is_changed);
+void remove_box(int s[9][9], int poss_pos[9][9][9], int row, int col, bool *is_changed);
 
 #endif //POSS_POS_OPERATIONS_H

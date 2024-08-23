@@ -57,12 +57,12 @@ void _only_col(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved
     }
 }
 
-/// Inserts value in [s] if its the only one in the square of [poss_pos]
-void _only_square(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
+/// Inserts value in [s] if its the only one in the box of [poss_pos]
+void _only_box(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
     // TODO
 }
 
-/// Places all [poss_pos] numbers that are the only ones in the same row/col/square
+/// Places all [poss_pos] numbers that are the only ones in the same row/col/box
 void place_poss_pos_med(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {
@@ -71,7 +71,7 @@ void place_poss_pos_med(int s[9][9], int poss_pos[9][9][9], bool *is_changed, in
             if (!*is_changed)
                 _only_col(s, poss_pos, is_changed, solved_num);
             if (!*is_changed)
-                _only_square(s, poss_pos, is_changed, solved_num);
+                _only_box(s, poss_pos, is_changed, solved_num);
         }
     }
 }
