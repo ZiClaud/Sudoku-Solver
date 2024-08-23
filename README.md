@@ -2,6 +2,101 @@
 
 ### Made in C
 
+---
+
+### Example
+
+<details>
+    <summary>
+        Using: set_custom_sudoku_string(sudoku); - Faster
+    </summary>
+
+```
+Enter the 81 character string containing only numbers:
+980376410603000070000450800006000048208164000017090060020081900000007000060902704
+
+9 8 0|3 7 6|4 1 0 
+6 0 3|0 0 0|0 7 0 
+0 0 0|4 5 0|8 0 0 
+-----------------
+0 0 6|0 0 0|0 4 8 
+2 0 8|1 6 4|0 0 0 
+0 1 7|0 9 0|0 6 0 
+-----------------
+0 2 0|0 8 1|9 0 0 
+0 0 0|0 0 7|0 0 0 
+0 6 0|9 0 2|7 0 4 
+```
+</details>
+
+<details>
+    <summary>
+        Using: set_custom_sudoku(sudoku); - Beginner Friendly
+    </summary>
+
+```
+X 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+-----------------
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+-----------------
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+
+
+Enter an integer (between 0 and 9): 9
+9 X 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+-----------------
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+-----------------
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+
+
+Enter an integer (between 0 and 9): 8
+9 8 X|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+-----------------
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+-----------------
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+
+
+Enter an integer (between 0 and 9): 0
+9 8 0|X 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+-----------------
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+-----------------
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+0 0 0|0 0 0|0 0 0 
+
+
+Enter an integer (between 0 and 9): 
+...
+```
+</details>
+
+--- 
+
 You can test the solver by using the strings found in the `*.json` files inside the directory `examples`.
 
 - If the text at the end appears to be `white`, it was solved successfully
@@ -10,4 +105,4 @@ You can test the solver by using the strings found in the `*.json` files inside 
 
 ---
 
-Sudoku examples in directory `examples` are from https://opensudoku.moire.org/
+Sudoku examples in the directory `examples` are from https://opensudoku.moire.org/
