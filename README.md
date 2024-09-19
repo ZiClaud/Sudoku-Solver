@@ -8,7 +8,8 @@
 
 <details>
     <summary>
-        Using: set_custom_sudoku_string(sudoku); - Faster
+        Using: set_custom_sudoku_string(sudoku); <br>
+        <b> Faster </b>
     </summary>
 
 ```
@@ -27,11 +28,13 @@ Enter the 81 character string containing only numbers:
 0 0 0|0 0 7|0 0 0 
 0 6 0|9 0 2|7 0 4 
 ```
+
 </details>
 
 <details>
     <summary>
-        Using: set_custom_sudoku(sudoku); - Beginner Friendly
+        Using: set_custom_sudoku(sudoku); <br>
+        <b> Beginner Friendly </b>
     </summary>
 
 ```
@@ -62,37 +65,10 @@ Enter an integer (between 0 and 9): 9
 0 0 0|0 0 0|0 0 0 
 
 
-Enter an integer (between 0 and 9): 8
-9 8 X|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
------------------
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
------------------
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
-
-
-Enter an integer (between 0 and 9): 0
-9 8 0|X 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
------------------
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
------------------
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
-0 0 0|0 0 0|0 0 0 
-
-
 Enter an integer (between 0 and 9): 
-...
+(...)
 ```
+
 </details>
 
 --- 

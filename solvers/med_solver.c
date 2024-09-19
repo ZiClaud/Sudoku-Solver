@@ -57,7 +57,7 @@ void _only_col(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved
     }
 }
 
-/// Inserts value in [s] if its the only one in the box of [poss_pos]
+/// Inserts value in [s] if it's the only one in the box of [poss_pos]
 void _only_box(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
     // TODO
 }
