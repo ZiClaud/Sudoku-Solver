@@ -2,11 +2,9 @@
 // Created by ziclaud on 08/08/24.
 //
 
-#include "med_solver.h"
-
 #include <assert.h>
-#include <stdio.h>
 
+#include "med_solver.h"
 #include "basic_solver.h"
 #include "../basics/basics.h"
 #include "../basics/basic_operations.h"
@@ -124,6 +122,5 @@ void place_poss_pos_med(int s[9][9], int poss_pos[9][9][9], bool *is_changed, in
 }
 
 void solve_med(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
-    // TODO: Test more
     place_poss_pos_med(s, poss_pos, is_changed, solved_num);
 }
