@@ -23,7 +23,7 @@ void remove_poss_pos(int s[9][9], int poss_pos[9][9][9], bool *is_changed) {
     }
 }
 
-/// Add all sudoku's [poss_pos] where theres just a single possible position in that cell
+/// Add all sudoku's [poss_pos] where there's just a single possible position in that cell
 void add_sudoku(int s[9][9], int poss_pos[9][9][9], int *solved_num) {
     for (int row = 0; row < 9; ++row) {
         for (int col = 0; col < 9; ++col) {

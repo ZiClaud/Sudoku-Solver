@@ -45,7 +45,7 @@ void set_custom_sudoku_string(int sudoku[9][9]) {
     assert(strlen(numbers) == 81);
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = numbers[(i) * 9 + (j + 1) - 1] - '0';
+            sudoku[i][j] = numbers[i * 9 + (j + 1) - 1] - '0';
         }
     }
     free(numbers);

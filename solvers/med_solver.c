@@ -10,7 +10,7 @@
 #include "../basics/basic_operations.h"
 #include "../basics/poss_pos_operations.h"
 
-/// Inserts value in [s] if its the only one in the row of [poss_pos]
+/// Inserts value in [s] if it's the only one in the row of [poss_pos]
 void _only_row(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
     for (int row = 0; row < 9; ++row) {
         for (int i = 1; i <= 9; ++i) {
@@ -34,7 +34,7 @@ void _only_row(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved
     }
 }
 
-/// Inserts value in [s] if its the only one in the col of [poss_pos]
+/// Inserts value in [s] if it's the only one in the col of [poss_pos]
 void _only_col(int s[9][9], int poss_pos[9][9][9], bool *is_changed, int *solved_num) {
     for (int col = 0; col < 9; ++col) {
         for (int i = 0; i < 9; ++i) {

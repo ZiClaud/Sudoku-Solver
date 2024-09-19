@@ -8,7 +8,7 @@
 #define ANSI_COLOR_CYAN    "\x1b[36m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
-void print_result(int sudoku[9][9], int solved_cells, int to_solve) {
+void print_result(int sudoku[9][9], const int solved_cells, const int to_solve) {
     print_sudoku(sudoku);
     if (has_errors(sudoku)) {
         printf(ANSI_COLOR_YELLOW "WARNING: Errors found" ANSI_COLOR_RESET "\n");
