@@ -1,15 +1,11 @@
 ## Sudoku Solver
 
-### Made in C
-
----
-
 ### Example
 
 <details>
     <summary>
         Using: set_custom_sudoku_string(sudoku); <br>
-        <b> Faster </b>
+        <b>Faster</b> <i>(Default)</i>
     </summary>
 
 ```
@@ -34,7 +30,7 @@ Enter the 81 character string containing only numbers:
 <details>
     <summary>
         Using: set_custom_sudoku(sudoku); <br>
-        <b> Beginner Friendly </b>
+        <b>Beginner Friendly</b> <i>(Change a line inside `main.c`) </i>
     </summary>
 
 ```

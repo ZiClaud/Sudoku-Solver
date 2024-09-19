@@ -10,7 +10,6 @@
 int main(void) {
     int sudoku[9][9];
     set_custom_sudoku_string(sudoku);
-    // set_custom_sudoku(sudoku);
 
     // Will be true if poss_pos removes a single number
     bool is_changed;
