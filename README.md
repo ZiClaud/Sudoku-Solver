@@ -4,8 +4,7 @@
 
 <details>
     <summary>
-        Using: set_custom_sudoku_string(sudoku); <br>
-        <b>Faster</b> <i>(Default)</i>
+        Using: <b>Faster Mode</b> <i>(Default)</i>
     </summary>
 
 ```
@@ -29,8 +28,7 @@ Enter the 81 character string containing only numbers:
 
 <details>
     <summary>
-        Using: set_custom_sudoku(sudoku); <br>
-        <b>Beginner Friendly</b> <i>(Change a line inside `main.c`) </i>
+        Using: <b>Easy/Beginner Friendly Mode</b> <i>(Answer with 'N' or 'n' to prompt)</i>
     </summary>
 
 ```

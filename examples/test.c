@@ -20,8 +20,8 @@ void _fill_with_zeros(int s[9][9]) {
     }
 }
 
-/// Reads sudoku from input
-void set_custom_sudoku(int sudoku[9][9]) {
+/// Reads sudoku from input (Beginner friendly mode)
+void set_custom_sudoku_easy(int sudoku[9][9]) {
     int number;
     _fill_with_zeros(sudoku);
     for (int i = 0; i < 9; ++i) {
@@ -36,8 +36,8 @@ void set_custom_sudoku(int sudoku[9][9]) {
     }
 }
 
-/// Reads sudoku from input
-void set_custom_sudoku_string(int sudoku[9][9]) {
+/// Reads sudoku from input (Faster mode)
+void set_custom_sudoku_fast(int sudoku[9][9]) {
     char *numbers = malloc(81 * sizeof(char) + 1);
     _fill_with_zeros(sudoku);
     printf("Enter the 81 character string containing only numbers:\n");
@@ -51,85 +51,20 @@ void set_custom_sudoku_string(int sudoku[9][9]) {
     free(numbers);
 }
 
-void set_sudoku_easy(int sudoku[9][9]) {
-    const int s[9][9] = {
-        {0, 1, 4, 0, 0, 8, 3, 6, 0},
-        {0, 0, 6, 0, 3, 0, 1, 0, 8},
-        {0, 7, 8, 1, 0, 0, 9, 0, 4},
-        {0, 0, 0, 8, 0, 2, 0, 3, 1},
-        {0, 4, 7, 3, 1, 5, 8, 9, 0},
-        {8, 3, 0, 6, 0, 4, 0, 0, 0},
-        {7, 0, 2, 0, 0, 3, 6, 1, 0},
-        {4, 0, 5, 0, 6, 0, 7, 0, 0},
-        {0, 6, 3, 9, 0, 0, 5, 4, 0}
-    };
+void set_custom_sudoku(int sudoku[9][9]) {
+    printf("Fast setup? Y/n\n");
+    char *answer = malloc(10 * sizeof(char) + 1);
+    answer[0] = 'Y';
+    assert(scanf("%s", answer));
+    assert(strlen(answer) <= 10);
 
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = s[i][j];
-        }
+    if (answer[0] == 'n' || answer[0] == 'N') {
+        printf("Fast setup\n");
+        set_custom_sudoku_easy(sudoku);
+    } else {
+        printf("Easy setup\n");
+        set_custom_sudoku_fast(sudoku);
     }
-}
 
-void set_sudoku_med(int sudoku[9][9]) {
-    // TODO
-    const int s[9][9] = {
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    };
-
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = s[i][j];
-        }
-    }
-}
-
-
-void set_sudoku_hard(int sudoku[9][9]) {
-    // TODO
-    const int s[9][9] = {
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    };
-
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = s[i][j];
-        }
-    }
-}
-
-void set_sudoku_test(int sudoku[9][9]) {
-    const int s[9][9] = {
-        {0, 0, 0, 6, 0, 1, 0, 0, 0},
-        {0, 0, 0, 9, 8, 0, 0, 0, 0},
-        {0, 0, 0, 2, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0}
-    };
-
-    for (int i = 0; i < 9; ++i) {
-        for (int j = 0; j < 9; ++j) {
-            sudoku[i][j] = s[i][j];
-        }
-    }
+    free(answer);
 }
